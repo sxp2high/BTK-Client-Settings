@@ -59,7 +59,7 @@ sliderSetPosition [1901, btk_clientsettings_terraingrid];
 
 	// Reset
 	if (dialog) then { closeDialog 0; };
-	btk_clientsettings_dialog_open = false;
+	btk_clientsettings_dialog_open = nil;
 
 	// Fade out background
 	btk_clientsettings_dialog_blur ppEffectAdjust [0];

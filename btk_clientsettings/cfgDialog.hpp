@@ -37,10 +37,14 @@ class btk_clientsettings_dialog {
     movingEnable = true;
 	enableSimulation = true;
     onLoad = "uiNamespace setVariable ['btk_clientsettings_dialog_display', (_this select 0)];";
+	duration = 99999999;
+	fadein = 0;
+	fadeout = 1;
 
     class Controls {
 
-		class IGUIBack_2200: IGUIBack {
+		class IGUIBack_2200: IGUIBack
+		{
 			idc = 2200;
 			x = 8 * GUI_GRID_W + GUI_GRID_X;
 			y = 23 * GUI_GRID_H + GUI_GRID_Y;
@@ -48,26 +52,26 @@ class btk_clientsettings_dialog {
 			h = 2 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0.6};
 		};
-
-		class IGUIBack_2201: IGUIBack {
+		class IGUIBack_2201: IGUIBack
+		{
 			idc = 2201;
 			x = 8 * GUI_GRID_W + GUI_GRID_X;
-			y = 16.1 * GUI_GRID_H + GUI_GRID_Y;
+			y = 16 * GUI_GRID_H + GUI_GRID_Y;
 			w = 23 * GUI_GRID_W;
 			h = 2.5 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0.6};
 		};
-
-		class IGUIBack_2203: IGUIBack {
+		class IGUIBack_2203: IGUIBack
+		{
 			idc = 2203;
 			x = 8 * GUI_GRID_W + GUI_GRID_X;
-			y = 20.1 * GUI_GRID_H + GUI_GRID_Y;
+			y = 20 * GUI_GRID_H + GUI_GRID_Y;
 			w = 23 * GUI_GRID_W;
 			h = 2.5 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0.6};
 		};
-
-		class RscText_1000: RscText {
+		class RscText_1000: RscText
+		{
 			idc = 1000;
 			text = "View distance";
 			x = 8 * GUI_GRID_W + GUI_GRID_X;
@@ -79,17 +83,18 @@ class btk_clientsettings_dialog {
 			colorBackground[] = {"(profilenamespace getVariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getVariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getVariable ['GUI_BCG_RGB_B',0.8862])",0.9};
 			sizeEx = 1 * GUI_GRID_H;
 		};
-
-		class RscSlider_1900: btk_slider_base {
+		class RscSlider_1900: btk_slider_base
+		{
 			idc = 1900;
 			x = 8.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 16.6 * GUI_GRID_H + GUI_GRID_Y;
+			y = 16.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 22 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
+			tooltip = "Change view distance";
 			onSliderPosChanged = "if ((typeName (_this select 1)) == 'SCALAR') then { setViewDistance round((_this select 1)*1000) };";
 		};
-
-		class RscText_1002: RscText {
+		class RscText_1002: RscText
+		{
 			idc = 1002;
 			text = "Terrain detail";
 			x = 8 * GUI_GRID_W + GUI_GRID_X;
@@ -101,11 +106,11 @@ class btk_clientsettings_dialog {
 			colorBackground[] = {"(profilenamespace getVariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getVariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getVariable ['GUI_BCG_RGB_B',0.8862])",0.9};
 			sizeEx = 1 * GUI_GRID_H;
 		};
-
-		class RscText_1003: RscText {
+		class RscText_1003: RscText
+		{
 			idc = 1003;
 			text = "FPS";
-			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			x = 8.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 6 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
@@ -114,8 +119,8 @@ class btk_clientsettings_dialog {
 			tooltip = "Frames Per Second";
 			sizeEx = 1.25 * GUI_GRID_H;
 		};
-
-		class RscButton_1604: RscButton {
+		class RscButton_1604: RscButton
+		{
 			idc = 1604;
 			text = "Exit";
 			x = 24.5 * GUI_GRID_W + GUI_GRID_X;
@@ -124,16 +129,17 @@ class btk_clientsettings_dialog {
 			h = 1 * GUI_GRID_H;
 			colorText[] = {1,1,1,1};
 			tooltip = "Exit (ESC)";
+			sizeEx = 1 * GUI_GRID_H;
 			onButtonClick = "closeDialog 0;";
-			colorBackground[] = {"(profilenamespace getVariable ['GUI_BCG_RGB_R',0.3843])","(profilenamespace getVariable ['GUI_BCG_RGB_G',0.7019])","(profilenamespace getVariable ['GUI_BCG_RGB_B',0.8862])",0.9};
 		};
-
-		class RscSlider_1901: btk_slider_base {
+		class RscSlider_1901: btk_slider_base
+		{
 			idc = 1901;
 			x = 8.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 20.6 * GUI_GRID_H + GUI_GRID_Y;
+			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 22 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
+			tooltip = "Change terrain detail";
 			onSliderPosChanged = "if ((typeName (_this select 1)) == 'SCALAR') then { btk_clientsettings_terraingrid = ((round(_this select 1)) max 1); };";
 		};
 

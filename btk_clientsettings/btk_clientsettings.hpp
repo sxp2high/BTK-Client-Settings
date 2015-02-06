@@ -5,7 +5,7 @@
 
 /*
 	Set to FALSE to disable the addon entirely.
-	Requires the mission to be reloaded (or lobby in mp) to take effect.
+	Requires mission restart (in SP) or lobby (in MP) to take effect.
 */
 btk_clientsettings_enabled = true;
 
